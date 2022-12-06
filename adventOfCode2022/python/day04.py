@@ -30,11 +30,12 @@ def count_fully_contain_pairs(assignments):
 
     return nb_overlap
 
-
+# returns a list containing tuples, the tuples themselves containing 2 lists of start-end pairs
+# ex: [([start1, end1], [start2, end2]), ([start3, end3], [start4, end4])]
 def format_assignments(assignments):
     formatted_pairs = assignments.split("\n")
     # print(formatted_pairs)
-    
+
     final_format = []
     for pair in formatted_pairs:
         pair = pair.split(", ")
