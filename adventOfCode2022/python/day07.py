@@ -93,8 +93,8 @@ def sum_sizes_of_directories_below_100k(root_dir):
 
     return sum(sum_sizes)
 
-    
 
+target = 95437
 report = """\
 $ cd /
 $ ls
@@ -122,4 +122,7 @@ $ ls
 """
 
 root_dir = build_directories_tree(report)
-print(sum_sizes_of_directories_below_100k(root_dir))
+# print(sum_sizes_of_directories_below_100k(root_dir))
+
+if sum_sizes_of_directories_below_100k(root_dir) == target:
+    print("Success")
