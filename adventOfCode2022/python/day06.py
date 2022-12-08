@@ -2,15 +2,14 @@
 
 def find_start_of_packet(datastream):
     current_idx = 4
-    characters = [char for idx, char in enumerate(datastream) if idx < 4]
+    characters = [char for idx, char in enumerate(datastream) if idx < 4] # queue
     valid_start = is_valid(characters)
 
     while not valid_start and current_idx < len(datastream)-4:
         characters.pop(0)
         characters.append(datastream[current_idx])
 
-        if is_valid(characters):
-            valid_start = True
+        valid_start = is_valid(characters)
 
         current_idx += 1
 
