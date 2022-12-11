@@ -16,7 +16,7 @@ def is_head_adjacent(head_coor, tail_coor):
     head_x, head_y = head_coor[0], head_coor[1]
     tail_x, tail_y = tail_coor[0], tail_coor[1]
 
-    return abs(head_x - tail_x) < abs(2) and abs(head_y - tail_y) < abs(2)
+    return abs(head_x - tail_x) < 2 and abs(head_y - tail_y) < 2
 
 
 def count_visited_tail_positions(motions):
@@ -31,7 +31,7 @@ def count_visited_tail_positions(motions):
         direction, num = motion[0], motion[1]
 
         while num > 0:
-            head_old_coor = head.copy()
+            head_prev_coor = head.copy()
 
             if direction == "U":
                 head[1] += 1
@@ -43,7 +43,7 @@ def count_visited_tail_positions(motions):
                 head[0] += 1
 
             if not is_head_adjacent(head, tail):
-                tail = head_old_coor
+                tail = head_prev_coor
                 visited_positions.add(tuple(tail))
 
             num -= 1
